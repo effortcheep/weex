@@ -142,6 +142,9 @@ typedef NS_ENUM(NSInteger, WXComponentBorderRecord) {
         if (isCancelled()) {
             return nil;
         }
+        if (bounds.size.width <= 0 || bounds.size.height <= 0) {
+            return nil;
+        }
         
         __strong WXComponent* sself = wself;
         if (sself) {
@@ -296,6 +299,9 @@ typedef NS_ENUM(NSInteger, WXComponentBorderRecord) {
             return nil;
         }
         NSMutableArray *displayBlocks = [NSMutableArray array];
+        if (bounds.size.width <= 0 || bounds.size.height <= 0) {
+            return nil;
+        }
         
         CGContextRef context = [self beginDrawContext:bounds];
         

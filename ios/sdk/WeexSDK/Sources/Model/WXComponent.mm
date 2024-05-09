@@ -953,6 +953,10 @@ static BOOL bNeedRemoveEvents = YES;
 
 - (UIImage *)imageFromLayer:(CALayer *)layer
 {
+    if (layer.frame.size.width <= 0 || layer.frame.size.height <= 0) {
+        return nil;
+    }
+    
     UIGraphicsBeginImageContextWithOptions(layer.frame.size, NO, 0);
     [layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *outputImage = UIGraphicsGetImageFromCurrentImageContext();
